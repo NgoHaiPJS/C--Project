@@ -1,0 +1,32 @@
+@model IEnumerable<Tramcam.Models.Resource>
+@{
+    ViewData["Title"] = "Tài Nguyên";
+}
+
+<section class="container py-5">
+    <h1 class="mb-4">Tài Nguyên</h1>
+    <p class="text-muted mb-4">Các tài nguyên chọn lọc bằng tiếng Việt để hỗ trợ bạn trong hành trình phục hồi.</p>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var r in Model)
+            {
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-dark-card text-light p-3">
+                        <h5>@r.Title</h5>
+                        <p class="text-muted">@r.Type • @r.Language</p>
+                        <p>@(r.Description.Length > 200 ? r.Description.Substring(0,200)+"..." : r.Description)</p>
+                        <a target="_blank" href="@r.Link" class="btn btn-outline-light">Mở tài nguyên</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-secondary">Chưa có tài nguyên nào. Vui lòng quay lại sau.</div>
+            </div>
+        }
+    </div>
+</section>

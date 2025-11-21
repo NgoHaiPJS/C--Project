@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tâm Trạng</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <meta name="theme-color" content="#0b1020" />
+    <style>
+        /* small inline helper to reduce flash before css loads */
+        body { background-color: #0b1020; }
+    </style>
+</head>
+<body class="bg-dark-theme text-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-white" asp-area="" asp-controller="Home" asp-action="Index">Tâm Trạng</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-controller="Home" asp-action="Index">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-controller="Home" asp-action="Resources">Tài Nguyên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-controller="Home" asp-action="About">Giới Thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-controller="Home" asp-action="Contact">Liên Hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="mt-5 py-4 text-center text-muted small">
+        <div class="container">
+            <div> &copy; 2025 Tâm Trạng — Nếu bạn đang gặp nguy hiểm, gọi ngay: <strong>1900 1111</strong></div>
+            <div class="mt-2"><a class="text-muted" asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a></div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
